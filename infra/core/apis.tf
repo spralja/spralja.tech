@@ -10,6 +10,7 @@ locals {
     "storage-api.googleapis.com",
     "iamcredentials.googleapis.com",
     "iam.googleapis.com",
+    "secretmanager.googleapis.com",
   ])
 }
 
