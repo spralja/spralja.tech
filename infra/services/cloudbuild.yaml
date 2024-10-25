@@ -4,6 +4,7 @@ steps:
     args:
       - '-c'
       - |
+        cd infra/services
         terraform init -no-color
         terraform apply -no-color -auto-approve
 
