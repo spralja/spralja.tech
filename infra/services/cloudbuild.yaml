@@ -1,0 +1,11 @@
+steps:
+  - name: 'hashicorp/terraform:${_TERRAFORM_VERSION}'  # Make sure to use the version you need
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        terraform init -no-color
+        terraform apply -no-color -auto-approve
+
+substitutions:
+  _TERRAFORM_VERSION: '1.5.7'
