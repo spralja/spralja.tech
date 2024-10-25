@@ -27,3 +27,11 @@ resource "google_storage_bucket" "default" {
     }
   }
 }
+
+resource "google_cloudbuildv2_repository" "default" {
+  name     = var.github_repo
+  location = var.region
+
+  remote_uri        = "https://github.com/${var.github_user}/${var.github_repo}.git"
+  parent_connection = "projects/${var.project}/locations/${var.region}/connections/github-${var.github_user}"
+}

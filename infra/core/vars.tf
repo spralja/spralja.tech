@@ -12,3 +12,13 @@ variable "region" {
   description = "The default region to manage resources in"
   type        = string
 }
+
+variable "github_user" {
+  description = "The GitHub username"
+  type        = string
+}
+
+variable "github_repo" {
+  description = "The GitHub repository name"
+  type        = string
+}
