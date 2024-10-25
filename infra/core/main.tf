@@ -6,3 +6,22 @@ resource "google_project" "default" {
 
   auto_create_network = false
 }
+
+resource "google_storage_bucket" "default" {
+  name = "${var.project}-tfstate"
+  location = var.region
+
+  versioning {
+    enabled = true
+  }
+
+  lifecycle_rule {
+    action {
+      type = "Delete"
+    }
+
+    condition {
+      num_newer_versions = 10
+    }
+  }
+}
