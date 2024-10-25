@@ -11,6 +11,8 @@ resource "google_storage_bucket" "default" {
   name = "${var.project}-tfstate"
   location = var.region
 
+  public_access_prevention = "enforced"
+
   versioning {
     enabled = true
   }
