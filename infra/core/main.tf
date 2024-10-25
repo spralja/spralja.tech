@@ -8,7 +8,7 @@ resource "google_project" "default" {
 }
 
 resource "google_storage_bucket" "default" {
-  name = "${var.project}-tfstate"
+  name     = "${var.project}-tfstate"
   location = var.region
 
   public_access_prevention = "enforced"

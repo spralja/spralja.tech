@@ -10,5 +10,5 @@ variable "project" {
 
 variable "region" {
   description = "The default region to manage resources in"
-  type = string
+  type        = string
 }
