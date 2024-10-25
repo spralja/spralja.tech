@@ -1,11 +1,20 @@
-resource "google_project_service" "compute" {
-  service = "compute.googleapis.com"
+locals {
+  services = toset([
+    "compute.googleapis.com",
+    "cloudbuild.googleapis.com",
+    "artifactregistry.googleapis.com",
+    "logging.googleapis.com",
+    "oslogin.googleapis.com",
+    "pubsub.googleapis.com",
+    "containerregistry.googleapis.com",
+    "storage-api.googleapis.com",
+    "iamcredentials.googleapis.com",
+    "iam.googleapis.com",
+  ])
 }
 
-resource "google_project_service" "oslogin" {
-  service = "oslogin.googleapis.com"
-}
+resource "google_project_service" "default" {
+  for_each = local.services
 
-resource "google_project_service" "cloudbuild" {
-  service = "cloudbuild.googleapis.com"
+  service = each.key
 }
